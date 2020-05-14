@@ -1,3 +1,6 @@
+global.$ = require('jquery');
+global.jQuery = require('jquery');
+
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
@@ -19,4 +22,5 @@ require("channels")
 
 import 'bootstrap';
 import '../stylesheets/application';
-import 'bootstrap-table/dist/bootstrap-table.js';
+import 'bootstrap-table/dist/bootstrap-table';
+import 'bootstrap-table/dist/extensions/export/bootstrap-table-export';

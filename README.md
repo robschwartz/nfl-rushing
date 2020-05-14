@@ -55,3 +55,10 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 ### Installation and running this solution
 ... TODO
+
+### Notes
+I skipped generating a Database since it wasn't unnecessary. The data being pulled from the JSON file is essentially data pulled from an API data coming from an API is more up to date than local data
+Install webpacker: rails webpacker:install
+Install or use node version above 8.16.0
+
+How do you decide on variable or route names?

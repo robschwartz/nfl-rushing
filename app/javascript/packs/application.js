@@ -19,3 +19,4 @@ require("channels")
 
 import 'bootstrap';
 import '../stylesheets/application';
+import 'bootstrap-table/dist/bootstrap-table.js';

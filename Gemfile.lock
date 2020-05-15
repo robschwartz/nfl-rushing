@@ -25,6 +25,8 @@ GEM
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.2.0)
+    actionpack-action_caching (1.2.1)
+      actionpack (>= 4.0.0)
     actiontext (6.0.3)
       actionpack (= 6.0.3)
       activerecord (= 6.0.3)
@@ -102,7 +104,6 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
-    pagy (3.8.1)
     public_suffix (4.0.5)
     puma (4.3.3)
       nio4r (~> 2.0)
@@ -199,13 +200,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-action_caching
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
   foreman
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  pagy
   puma (~> 4.1)
   rails (~> 6.0.3)
   sass-rails (>= 6)

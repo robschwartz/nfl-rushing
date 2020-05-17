@@ -1,7 +1,11 @@
 class NflController < ApplicationController
   def show_stats
-    stat = params[:stat]
-    @data = NflApiService.pull_stat_data(stat)
+    @stat = params[:stat]
+    @sort = params[:sort]
+    @sort_col = params[:sort_col]
+    @page = params[:page]
+
+    @data = NflApiService.pull_stat_data(@stat, @sort, @sort_col, @search)
     @headers = @data[0].keys
     @sortable_cols = ['Yds', 'Lng', 'TD']
     @searchable_cols = ['Player']

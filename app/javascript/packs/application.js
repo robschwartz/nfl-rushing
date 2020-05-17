@@ -23,4 +23,3 @@ require("channels")
 import 'bootstrap';
 import '../stylesheets/application';
 import 'bootstrap-table/dist/bootstrap-table';
-import 'bootstrap-table/dist/extensions/export/bootstrap-table-export';

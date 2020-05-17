@@ -1,6 +1,6 @@
 <div class="input-group">
   <%= form_tag(show_stats_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Player", class: 'form-control' %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Player", class: 'form-control', value: @search %>
     <span class="input-group-btn">
       <%= submit_tag "Search", class: 'btn btn-default' %>
     </span>
@@ -13,8 +13,8 @@
         <th class=<%= header %>>
         <%= header %> 
         <% if @sortable_cols.include?(header)%> 
-          <%= link_to "↑", show_stats_path(stat: @stat, sort: 'acs', sort_col: header) %> 
-          <%= link_to "↓", show_stats_path(stat: @stat, sort: 'desc', sort_col: header) %> 
+          <%= link_to "↑", show_stats_path(stat: @stat, sort: 'acs', sort_col: header, search: @search) %> 
+          <%= link_to "↓", show_stats_path(stat: @stat, sort: 'desc', sort_col: header, search: @search) %> 
         <% end %>
         </th>
       <% end %>

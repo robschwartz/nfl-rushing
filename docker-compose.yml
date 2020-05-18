@@ -1,0 +1,20 @@
+version: '3'
+services:
+  webpacker:
+    image: nfl-rushing
+    command: ["./bin/webpack-dev-server"]
+    volumes:
+      - .:/opt/nfl-rushing:cached
+    ports:
+      - 3035:3035
+
+  web:
+    image: nfl-rushing
+    build:
+      context: .
+    links:
+      - webpacker
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/opt/nfl-rushing:cached

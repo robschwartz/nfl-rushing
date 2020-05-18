@@ -5,6 +5,11 @@
       <%= submit_tag "Search", class: 'btn btn-default' %>
     </span>
   <% end %>
+    <%= form_tag(download_csv_path(search: @search, sort: @sort, sort_col: @sort_col, stat: @stat), :method => "post", id: "search-form") do %>
+    <span class="input-group-btn">
+      <%= submit_tag "Download CSV", class: 'btn btn-default' %>
+    </span>
+  <% end %>
 </div>
 <table id="table" class="table table-striped table-bordered table-sm">
   <thead>

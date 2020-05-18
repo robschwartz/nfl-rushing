@@ -1,13 +1,13 @@
 <div class="input-group">
-  <%= form_tag(show_stats_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Player", class: 'form-control', value: @search %>
+  <%= form_tag(download_csv_path(search: @search, sort: @sort, sort_col: @sort_col, stat: @stat), :method => "post", id: "search-form", class:'form-inline download') do %>
     <span class="input-group-btn">
-      <%= submit_tag "Search", class: 'btn btn-default' %>
+      <%= submit_tag "Download CSV", class: 'btn btn-primary' %>
     </span>
   <% end %>
-    <%= form_tag(download_csv_path(search: @search, sort: @sort, sort_col: @sort_col, stat: @stat), :method => "post", id: "search-form") do %>
+  <%= form_tag(show_stats_path, :method => "get", id: "search-form", class: 'form-inline') do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Player", class: 'form-control', value: @search %>
     <span class="input-group-btn">
-      <%= submit_tag "Download CSV", class: 'btn btn-default' %>
+      <%= submit_tag "Search", class: 'btn btn-primary' %>
     </span>
   <% end %>
 </div>

@@ -19,6 +19,6 @@ class NflController < ApplicationController
     @sort_col = params[:sort_col]
     @search = params[:search]
     @data = NflApiService.pull_stat_data(@stat, @sort, @sort_col, @search)
-    send_data @data, filename: "users-#{Date.today}.csv", disposition: 'attachment'
+    send_data NflApiService.to_csv(@data), filename: "player-#{Date.today}.csv", disposition: 'attachment'
   end
 end

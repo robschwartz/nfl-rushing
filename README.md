@@ -55,7 +55,7 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 ### Installation and running this solution
  * Make sure Docker is running on your machine.
- * To run the app locally, on first load use `docker-compose build` then `docker-compose up`. After first build, you can just use `docker-compose up`
+ * To run the app locally; on first build use `docker-compose build` then `docker-compose up`. After first build, just use `docker-compose up`
  * Navigate to `localhost:3000/nfl/rushing` to view and interact with the table
  * You can sort the table by acesnding or decending values for _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_
  * Searching by Player will return a list of all players matching the search string. The sorting will persist during Player search.

@@ -55,7 +55,17 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 ### Installation and running this solution
  * Make sure Docker is running on your machine.
- * run `run docker-compose up` to start the application
+ * To run the app locally, on first load use `docker-compose build` then `docker-compose up`. After first build, you can just use `docker-compose up`
  * Navigate to `localhost:3000/nfl/rushing` to view and interact with the table
- * You should be able to sort the table after searching for a player
- * The downloaded CSV should apply all sorting and filters shown on the table.
+ * You can sort the table by acesnding or decending values for _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_
+ * Searching by Player will return a list of all players matching the search string. The sorting will persist during Player search.
+ * You can downloaded a CSV of the players. The downloaded file should apply all sorting and filters options shown on the table.
+
+### Known issues
+ * You might run into Webpacker container build issues, mainly with `node-sass`. If you run into this issue, running `docker-compose run web npm rebuild node-sass` should fix the issue. If this doesn't work, please open an issue within the repo.
+ * Please open an issue in the repo for all other issues.
+
+### Future Improvements
+ * Add AJAX to render the sorted table data without refreshing the page
+ * Introduce caching to increase speed
+ * Enhance sorting options and output

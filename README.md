@@ -69,3 +69,4 @@ If you have any questions regarding requirements, do not hesitate to email your 
  * Add AJAX to render the sorted table data without refreshing the page
  * Introduce caching to increase speed
  * Enhance sorting options and output
+ * Add tests

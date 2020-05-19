@@ -54,16 +54,8 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-Make sure Docker is running on your machine.
-
-run `run docker-compose up` to start the application
-Navigate to `localhost:3000/nfl/rushing` to view and interact with the table
-You should be able to sort the table after searching for a player
-The downloaded CSV should apply all sorting and filters shown on the table.
-
-### Notes
-I skipped generating a Database since it wasn't unnecessary. The data being pulled from the JSON file is essentially data pulled from an API data coming from an API is more up to date than local data
-Install webpacker: rails webpacker:install
-Install or use node version above 8.16.0
-
-How do you decide on variable or route names?
+ * Make sure Docker is running on your machine.
+ * run `run docker-compose up` to start the application
+ * Navigate to `localhost:3000/nfl/rushing` to view and interact with the table
+ * You should be able to sort the table after searching for a player
+ * The downloaded CSV should apply all sorting and filters shown on the table.

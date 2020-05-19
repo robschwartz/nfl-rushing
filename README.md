@@ -70,3 +70,4 @@ If you have any questions regarding requirements, do not hesitate to email your 
  * Introduce caching to increase speed
  * Enhance sorting options and output
  * Add tests
+ * Add responsive layout

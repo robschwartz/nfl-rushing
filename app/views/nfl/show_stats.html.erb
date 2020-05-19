@@ -1,42 +1,48 @@
-<div class="input-group">
-  <%= form_tag(download_csv_path(search: @search, sort: @sort, sort_col: @sort_col, stat: @stat), :method => "post", id: "search-form", class:'form-inline download') do %>
-    <span class="input-group-btn">
-      <%= submit_tag "Download CSV", class: 'btn btn-primary' %>
-    </span>
-  <% end %>
-  <%= form_tag(show_stats_path, :method => "get", id: "search-form", class: 'form-inline') do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Player", class: 'form-control', value: @search %>
-    <span class="input-group-btn">
-      <%= submit_tag "Search", class: 'btn btn-primary' %>
-    </span>
-  <% end %>
-</div>
-<div class="table-responsive-md">
-  <table id="table" class="table table-hover table-dark">
-    <thead>
-      <tr>
-        <% @headers.each do |header| %>
-          <th class=<%= header %>>
-          <%= header %> 
-          <% if @sortable_cols.include?(header)%> 
-            <%= link_to "↑", show_stats_path(stat: @stat, sort: 'acs', sort_col: header, search: @search) %> 
-            <%= link_to "↓", show_stats_path(stat: @stat, sort: 'desc', sort_col: header, search: @search) %> 
-          <% end %>
-          </th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @data.each do |data| %>
+<% if @data %>
+  <div class="input-group">
+    <%= form_tag(download_csv_path(search: @search, sort: @sort, sort_col: @sort_col, stat: @stat), :method => "post", id: "search-form", class:'form-inline download') do %>
+      <span class="input-group-btn">
+        <%= submit_tag "Download CSV", class: 'btn btn-primary' %>
+      </span>
+    <% end %>
+    <%= form_tag(show_stats_path, :method => "get", id: "search-form", class: 'form-inline') do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Player", class: 'form-control', value: @search %>
+      <span class="input-group-btn">
+        <%= submit_tag "Search", class: 'btn btn-primary' %>
+      </span>
+    <% end %>
+  </div>
+  <div class="table-responsive-md">
+    <table id="table" class="table table-hover table-dark">
+      <thead>
         <tr>
-          <% @headers.each do |stat| %>
-              <td>
-                <%= data[stat] %>
-              </td>
+          <% @headers.each do |header| %>
+            <th class=<%= header %>>
+            <%= header %> 
+            <% if @sortable_cols.include?(header)%> 
+              <%= link_to "↑", show_stats_path(stat: @stat, sort: 'acs', sort_col: header, search: @search) %> 
+              <%= link_to "↓", show_stats_path(stat: @stat, sort: 'desc', sort_col: header, search: @search) %> 
+            <% end %>
+            </th>
           <% end %>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<%== pagy_bootstrap_nav(@pagy) %>
+      </thead>
+      <tbody>
+        <% @data.each do |data| %>
+          <tr>
+            <% @headers.each do |stat| %>
+                <td>
+                  <%= data[stat] %>
+                </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% else %>
+  <div>
+    <h2 class="no-stats">No data found for this stat</h2>
+  </div>
+<% end %>

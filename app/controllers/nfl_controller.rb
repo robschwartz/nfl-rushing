@@ -1,20 +1,17 @@
+# Controller to handle NFL routing
 class NflController < ApplicationController
   include Pagy::Backend
   before_action :set_data
 
   def show_stats
-    if !@data.nil?
-      @pagy, @data = pagy_array(@data)
-      @headers = @data[0].keys
-      @sortable_cols = %w[Yds Lng TD]
-      @searchable_cols = ['Player']
-    else
-      redirect_to
-    end
+    @pagy, @data = pagy_array(@data) if @data
+    @headers = @data[0].keys if @data
+    @sortable_cols = %w[Yds Lng TD]
+    @searchable_cols = ['Player']
   end
 
   def download_csv
-    send_data NflApiService.to_csv(@data), filename: "player-#{Date.today}.csv", disposition: 'attachment'
+    send_data NflApiService.to_csv(@data), filename: "player-#{Time.zone.today}.csv", disposition: 'attachment'
   end
 
   private

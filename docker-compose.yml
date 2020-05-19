@@ -6,9 +6,9 @@ services:
       - NODE_ENV=development
       - RAILS_ENV=development
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-    command: ./bin/webpack-dev-server
     volumes:
       - .:/nfl-rushing
+    command: bash -c "rm -rf /nfl-rushing/public/packs && ./bin/webpack-dev-server"
     ports:
       - '3035:3035'
 
